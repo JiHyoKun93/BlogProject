@@ -14,14 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Handles requests for the application home page.
  */
-@Controller
+@Controller("com.pro.blog.HomeController")
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -33,7 +30,13 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "index";
 	}
 	
+	@RequestMapping(value = "/main.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String main(Locale locale, Model model) {
+		logger.info("this is Main.jsp", locale);
+		
+		return "jsp/main/main";
+	}
 }
