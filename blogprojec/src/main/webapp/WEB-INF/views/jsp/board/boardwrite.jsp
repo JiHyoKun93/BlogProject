@@ -10,8 +10,60 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<%=cp%>/resources/css/board/boardmain.css" />
+<link rel="stylesheet" href="<%=cp%>/resources/ckeditor/sample/styles.css" />
+<script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/super-build/ckeditor.js"></script>
 </head>
 <body>
+
+<form id="testform">
+	<div id="content">
+		
+		<div id="container">
+			<div id="headerTitle">
+				<h1>타이틀</h1>
+			</div>
+			<div id=b_Article>
+			<input type="text" name="board_type">
+				<div class="list_title">
+					<h2>
+						<span class="text_title">
+						<input type="text" name="board_title">
+						</span>
+					</h2>
+				</div>
+			</div>
+			<div id="editor" style="display: none; "></div>
+			<input type="button" value="저장하기" onclick="sendFile();">
+			<input type="button" value="작성취소">
+			
+		</div>
+	</div>
+	</form>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="<%=cp%>/resources/js/ckeditor/ckeditor_upload.js"></script>
+<script type="text/javascript">
+
+function sendFile(){
+	let form = document.querySelector('#testform');
+	let formData = new FormData(form)
+	const editorData = editor.getData();
+	formData.append("editorData",editorData);
 	
+	$.ajax({
+		data: formData,
+		type: "POST",
+		url: "<%=cp%>/file/test.do",
+		cache: false,
+		contentType: false,
+		enctype: 'multipart/form-data',
+        processData: false,
+        success: function(str){
+        	console.log(str);
+        },
+	})
+}
+
+</script>
 </body>
 </html>

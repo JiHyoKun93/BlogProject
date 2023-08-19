@@ -16,7 +16,7 @@
   <li>WEB</li>
   <li>FrameWork</li>
   <li>Menu</li>
-  <li><a href="<%=cp%>/write.do">글쓰기</a></li>
+  <li><a href="<%=cp%>/boardwrite.do">글쓰기</a></li>
   
 </ul>
 

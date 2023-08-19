@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 
 	<mappers>
-		<mapper resource="com/pro/mapper/customMapper.xml"/>
+		<mapper resource="com/pro/mapper/writeBoardMapper.xml"/>
 	</mappers>
 
 </configuration>

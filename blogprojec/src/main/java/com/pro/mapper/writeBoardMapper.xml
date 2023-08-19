@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pro.writeboard">
+
+<select id="getMaxNum" resultType="int">
+	select ifnull(count(*),0) as num from writeBoard
+</select>
+
+<insert id="insertData" parameterType="com.pro.dto.WriteBoardDTO">
+	insert into writeBoard (board_num, board_type, board_title, board_content, board_createDate)
+	values (#{board_num}, #{board_type}, #{board_title}, #{board_content}, #{board_createDate})
+</insert>
+
+<select id="readData" parameterType="int" resultType="com.pro.dto.WriteBoardDTO">
+	select board_num, board_type, board_title, board_content, board_createDate from writeBoard
+	where board_num = #{board_num}
+</select>
+
+
+</mapper>
