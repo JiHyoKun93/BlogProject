@@ -10,12 +10,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="/WEB-INF/views/jsp/structure/thumbnail.jsp" />
+<c:import url="/WEB-INF/views/jsp/structure/headerBoard.jsp" />
 <link rel="stylesheet" href="<%=cp%>/resources/css/board/boardmain.css" />
 </head>
 <body>
 
-<form id="testform">
-	<div id="content">
+	<div id="content" class="content">
 		
 		<div id="container">
 			<div id="headerTitle">
@@ -31,11 +32,9 @@
 					</h2>
 				</div>
 			</div>
-			<div id="editor" style="display: none; ">${dto.board_content }</div>
+			<div id="editor">${dto.board_content }</div>
 			
 		</div>
 	</div>
-	</form>
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </body>
 </html>

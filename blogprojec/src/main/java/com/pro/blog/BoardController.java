@@ -1,5 +1,6 @@
 package com.pro.blog;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pro.dao.WriteBoardDAO;
@@ -23,10 +25,16 @@ public class BoardController {
 	WriteBoardDAO dao;
 	
 	@RequestMapping(value = "/boardmain.do")
-	public String boardMain(Locale locale, Model model) {
+	public ModelAndView boardMain(Locale locale, Model model) {
 		logger.info("this is BoardMain.jsp", locale);
 		
-		return "jsp/board/boardmain";
+		List<WriteBoardDTO> lists = dao.getList();
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("lists", lists);
+		mav.setViewName("jsp/board/boardmain");
+		return mav;
 	}
 	
 	@RequestMapping(value = "/boardwrite.do")
@@ -36,12 +44,12 @@ public class BoardController {
 		return "jsp/board/boardwrite";
 	}
 	
-	@RequestMapping(value = "/article.do")
-	public ModelAndView article() {
+	@RequestMapping(value = "/boardarticle.do")
+	public ModelAndView article(@RequestParam int board_num) {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		WriteBoardDTO dto = dao.getReadData(3);
+		WriteBoardDTO dto = dao.getReadData(board_num);
 		
 		System.out.println(dto.getBoard_num());
 		System.out.println(dto.getBoard_title());

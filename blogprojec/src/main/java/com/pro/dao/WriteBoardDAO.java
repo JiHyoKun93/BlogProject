@@ -46,4 +46,10 @@ public class WriteBoardDAO {
 		
 		return dto;
 	}
+	
+	public List<WriteBoardDTO> getList(){
+		List<WriteBoardDTO> lists = sessionTemplate.selectList("com.pro.writeboard.getList");
+		
+		return lists;
+	}
 }

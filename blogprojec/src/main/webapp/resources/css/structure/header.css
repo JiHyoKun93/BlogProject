@@ -1,3 +1,7 @@
+body{
+	overflow: auto
+}
+
 $
 side-menu-btn-color: #34495e ;
 
@@ -77,7 +81,7 @@ label[for="sidebar-btn"] {
 .content {
 	min-height: 100%;
 	min-width: 100%;
-	background-color: #f2f2f2;
+	background-color: white;
 	position: relative;
 	top: 0;
 	bottom: 100%;
@@ -85,3 +89,4 @@ label[for="sidebar-btn"] {
 	z-index: 1;
 	padding: 4em;
 }
+

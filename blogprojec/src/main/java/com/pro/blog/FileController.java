@@ -99,7 +99,7 @@ public class FileController {
 
 	
 	@RequestMapping(value = "/test.do")
-	public String test(@RequestParam String editorData, WriteBoardDTO dto) {
+	public ModelAndView test(@RequestParam String editorData, WriteBoardDTO dto) {
 		
 		int maxNum = dao.getMaxNum();
 //		System.out.println("test의 maxnum = " + maxNum);
@@ -109,7 +109,6 @@ public class FileController {
 		
 		dto.setBoard_num(maxNum + 1);
 		dto.setBoard_content(editorData);
-		dto.setBoard_createDate("now()");
 
 //		System.out.println(dto.getBoard_num());
 //		System.out.println(dto.getBoard_title());
@@ -120,7 +119,10 @@ public class FileController {
 		
 		dao.insertData(dto);
 		
-		return "SUCCESS";
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("boardmain.do");
+		
+		return mav;
 	}
 	
 	

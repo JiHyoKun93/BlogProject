@@ -11,12 +11,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <insert id="insertData" parameterType="com.pro.dto.WriteBoardDTO">
 	insert into writeBoard (board_num, board_type, board_title, board_content, board_createDate)
-	values (#{board_num}, #{board_type}, #{board_title}, #{board_content}, #{board_createDate})
+	values (#{board_num}, #{board_type}, #{board_title}, #{board_content}, now())
 </insert>
 
 <select id="readData" parameterType="int" resultType="com.pro.dto.WriteBoardDTO">
 	select board_num, board_type, board_title, board_content, board_createDate from writeBoard
 	where board_num = #{board_num}
+</select>
+
+<select id="getList" resultType="com.pro.dto.WriteBoardDTO">
+	select board_num, board_type, board_title, board_content, board_createDate from writeBoard
 </select>
 
 

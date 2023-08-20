@@ -30,31 +30,19 @@ String cp = request.getContextPath();
 				</div>
 			</div>
 
-
-
-
+		<c:forEach var="dto" items="${lists }">
 			<div class="list_content">
-				<a href="#" class="link_post"> <strong class="title_post">타이틀</strong>
-					<p class="text_post">내용</p>
+				<a href="/blog/boardarticle.do?board_num=${dto.board_num }" class="link_post"> <strong class="title_post">${dto.board_title }</strong>
 				</a>
-
+			
 				<div class="detail_info">
-					<a href="#" class="link_info">교육 일지/Java</a> <span class="text_bar"></span>
-					<span class="text_date">2023. 8. 11</span>
+					<a href="#" class="link_info">${dto.board_type }</a> <span class="text_bar"></span>
+					<span class="text_date">${dto.board_createDate }</span>
 				</div>
 			</div>
-			
-			<div class="list_content">
-				<a href="#" class="link_post"> <strong class="title_post">타이틀</strong>
-					<p class="text_post">내용</p>
-				</a>
-
-				<div class="detail_info">
-					<a href="#" class="link_info">교육 일지/Java</a> <span class="text_bar"></span>
-					<span class="text_date">2023. 8. 11</span>
-				</div>
-			</div>
-			
+			<input type="hidden" name="board_num" value="${dto.board_num }">
+		</c:forEach>
+		
 		</div>
 
 	</div>
