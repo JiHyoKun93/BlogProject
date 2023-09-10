@@ -16,13 +16,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/img/**" location="C:/sts_bundle/work/.metadata/.plugins/org.eclipse.wst.server.core/tmp0\wtpwebapps/blogprojec/resources/files" />
 	
-	    <beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-      <beans:property name="customArgumentResolvers">
-         <beans:list>
-            <beans:bean class="CommandMapArgumentResolver" />
-         </beans:list>
-      </beans:property>
-   </beans:bean>
+
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -62,11 +56,16 @@
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<beans:property name="driverClassName"
 			value="org.mariadb.jdbc.Driver" />
-		<beans:property name="url"
-			value="jdbc:mariadb://umj7-003.cafe24.com:3306/gyrms93" />
+		<beans:property name="url" value="jdbc:mariadb://umj7-003.cafe24.com:3306/gyrms93" />
 		<beans:property name="username" value="gyrms93" />
 		<beans:property name="password" value="chfha213!@!" />
 	</beans:bean>
 	
+	
+<!-- 	<beans:property name="url" value="jdbc:mariadb://localhost:3306/gyrms93" /> -->
+	
+<!-- 	<beans:property name="url" value="jdbc:mariadb://umj7-003.cafe24.com:3306/gyrms93" /> -->
+
+	<beans:bean id="my" class="com.pro.util.MyUtil" />
 	
 </beans:beans>

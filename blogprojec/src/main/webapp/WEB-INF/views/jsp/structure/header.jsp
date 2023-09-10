@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="<%=cp %>/resources/css/structure/header.css" />
 <script src="<%=cp %>/resources/js/header.js"></script>
 
+
 <ul class="sidebar">
   <li><a href="<%=cp%>">home</a></li>
   <li>MyPage</li>
@@ -18,6 +19,6 @@
   <li>Console Project</li>
 </ul>
 
+
 <input type="checkbox" id="sidebar-btn" class="sidebar-btn"/>
 <label for="sidebar-btn" class="sidebar-btn_text">☰</label>
-

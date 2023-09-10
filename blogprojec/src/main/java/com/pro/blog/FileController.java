@@ -99,9 +99,9 @@ public class FileController {
 
 	
 	@RequestMapping(value = "/test.do")
-	public ModelAndView test(@RequestParam String editorData, WriteBoardDTO dto) {
+	public ModelAndView test(@RequestParam String editorData, WriteBoardDTO dto) throws Exception {
 		
-		int maxNum = dao.getMaxNum();
+		int maxNum = dao.maxNum();
 //		System.out.println("test의 maxnum = " + maxNum);
 //		System.out.println("저장하러 들어옴");
 //		System.out.println(dto.getBoard_title());
@@ -120,7 +120,7 @@ public class FileController {
 		dao.insertData(dto);
 		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("boardmain.do");
+		mav.setViewName("jsp/board/boardmain");
 		
 		return mav;
 	}

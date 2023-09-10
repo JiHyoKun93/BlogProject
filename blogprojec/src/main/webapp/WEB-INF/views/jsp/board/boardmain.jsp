@@ -16,6 +16,7 @@ String cp = request.getContextPath();
 
 </head>
 <body>
+
 	<div class="content">
 
 		<div id="container">
@@ -30,21 +31,31 @@ String cp = request.getContextPath();
 				</div>
 			</div>
 
-		<c:forEach var="dto" items="${lists }">
-			<div class="list_content">
-				<a href="/blog/boardarticle.do?board_num=${dto.board_num }" class="link_post"> <strong class="title_post">${dto.board_title }</strong>
-				</a>
-			
-				<div class="detail_info">
-					<a href="#" class="link_info">${dto.board_type }</a> <span class="text_bar"></span>
-					<span class="text_date">${dto.board_createDate }</span>
-				</div>
-			</div>
-			<input type="hidden" name="board_num" value="${dto.board_num }">
-		</c:forEach>
-		
-		</div>
+			<c:forEach var="dto" items="${lists }">
+				<div class="list_content">
+					<a href="/blog/boardarticle.do?board_num=${dto.board_num }"
+						class="link_post"> <strong class="title_post">${dto.board_title }</strong>
+					</a>
 
+					<div class="detail_info">
+						<a href="#" class="link_info">${dto.board_type }</a> <span
+							class="text_bar"></span> <span class="text_date">${dto.board_createDate }</span>
+					</div>
+				</div>
+				<input type="hidden" name="board_num" value="${dto.board_num }">
+			</c:forEach>
+
+		</div>
+		<div id="footer">
+			<p>
+				<c:if test="${dataCount!=0 }">
+						${pageIndexList }
+					</c:if>
+				<c:if test="${dataCount==0 }">
+						등록된 게시물이 없습니다.
+					</c:if>
+			</p>
+		</div>
 	</div>
 
 

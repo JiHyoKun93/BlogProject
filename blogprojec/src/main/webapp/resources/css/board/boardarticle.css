@@ -1,0 +1,122 @@
+a{
+	text-decoration: none;
+}
+
+#container{
+	width: 800px;
+    min-height: 858px;
+    margin: 0 auto;
+    padding: 96px 42px 100px;
+}
+
+#headerTitle{
+	margin: 0 0 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #efefef;
+}
+
+#headerTitle .title_category a {
+    font-weight: 700;
+    font-size: 16px;
+    color: #6bacce;
+}
+#headerTitle .title_post {
+    padding: 5px 0 10px;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 43px;
+    color: #222;
+}
+
+#headerTitle .info_post, #headerTitle .info_post a {
+    font-size: 13px;
+    color: #a7a7a7;
+}
+
+#headerTitle .info_post .txt_bar {
+    margin: 0 9px 0 5px;
+}
+.txt_bar {
+    display: inline-block;
+    width: 1px;
+    height: 9px;
+    margin: 0 9px;
+    background-color: #ebebeb;
+}
+#headerTitle .info_post, #headerTitle .info_post a {
+    font-size: 13px;
+    color: #a7a7a7;
+}
+@media only screen and (max-width: 738px){
+	#headerTitle{
+		padding: 0 15px 13px;
+   	 	margin-bottom: 18px;
+	}
+	
+	#headerTitle .title_category a {
+    font-weight: normal;
+    font-size: 14px;
+	}
+	#headerTitle .title_post {
+    padding: 2px 0 3px;
+    font-size: 24px;
+    line-height: 30px;
+	}
+	#headerTitle .info_post {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    font-family: applesdgothicneo-ultralight;
+	}
+	#headerTitle .info_post .txt_bar {
+    margin: 0 6px 0 4px;
+	}
+	
+	
+}
+
+
+
+#another_Article{
+	border: 1px solid #E5E5E5;
+    padding: 10px 10px 5px;
+    margin: 10px 0;
+    clear: both;
+}
+
+#another_Article h4 {
+	padding: 2px 0 6px;
+	font-size: 24px;
+    margin: 0;
+    border-bottom: 1px solid #E5E5E5;
+    color: #909090;
+}
+
+#another_Article table {
+	    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#another_Article tbody {
+	color: #909090;
+}
+
+#another_Article th {
+	text-align: left;
+    font-size: 18px;
+    font-weight: normal;
+    word-break: break-all;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+#another_Article a{
+	text-align: left;
+    font-size: 12px;
+    font-weight: normal;
+    word-break: break-all;
+    overflow: hidden;
+    line-height: 1.5;
+}

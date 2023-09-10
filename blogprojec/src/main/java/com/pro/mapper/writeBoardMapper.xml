@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.pro.writeboard">
 
-<select id="getMaxNum" resultType="int">
+<select id="maxNum" resultType="int">
 	select ifnull(count(*),0) as num from writeBoard
 </select>
 
@@ -14,14 +14,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	values (#{board_num}, #{board_type}, #{board_title}, #{board_content}, now())
 </insert>
 
-<select id="readData" parameterType="int" resultType="com.pro.dto.WriteBoardDTO">
+<select id="getReadData" parameterType="int" resultType="com.pro.dto.WriteBoardDTO">
 	select board_num, board_type, board_title, board_content, board_createDate from writeBoard
 	where board_num = #{board_num}
 </select>
 
 <select id="getList" resultType="com.pro.dto.WriteBoardDTO">
-	select board_num, board_type, board_title, board_content, board_createDate from writeBoard
+	SELECT board_num, board_type, board_title, board_content, DATE_FORMAT(board_createDate, 'YYYY-MM-DD') AS board_createDate
+	FROM writeBoard
+	WHERE board_title LIKE '%%'
+	ORDER BY board_createDate desc
+	LIMIT 5 OFFSET 0;
+</select>
+
+<select id="getDataCount" parameterType="map" resultType="int">
+	select ifnull(count(*),0) from writeBoard
+	where board_title like '%' || #{searchValue} || '%'
 </select>
 
 
+
+<delete id="deleteData" parameterType="int">
+	delete board where num=#{num}
+</delete>
 </mapper>

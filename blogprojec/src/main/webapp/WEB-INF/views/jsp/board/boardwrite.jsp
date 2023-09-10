@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시글 작성</title>
 <link rel="stylesheet" href="<%=cp%>/resources/css/board/boardmain.css" />
 <link rel="stylesheet" href="<%=cp%>/resources/ckeditor/sample/styles.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,22 +22,23 @@
 		
 		<div id="container">
 			<div id="headerTitle">
-				<h1>타이틀</h1>
+				<h1>글쓰기</h1>
 			</div>
 			<div id=b_Article>
-			<input type="text" name="board_type" class="form-control" id="floatingInput" placeholder="제목">
+			<input type="text" name="board_type" class="form-control" id="floatingInput" placeholder="title">
 				<div class="list_title">
 					<h2>
 						<span class="text_title">
-						<input type="text" name="board_title" class="form-control" id="floatingInput" placeholder="type">
+						<input type="text" name="board_title" class="form-control" id="floatingInput" placeholder="제목">
 						</span>
 					</h2>
 				</div>
 			</div>
 			<div id="editor" style="display: none; "></div>
-			<input type="button" class="btn btn-outline-success" value="저장하기" onclick="sendFile();">
-			<input type="button" class="btn btn-outline-danger" value="작성취소">
-			
+			<div style="align-items: center">
+				<input type="button" class="btn btn-outline-success" value="저장하기" onclick="sendFile();">
+				<input type="button" class="btn btn-outline-danger" value="작성취소">
+			</div>
 		</div>
 	</div>
 	</form>
@@ -60,7 +61,7 @@ function sendFile(){
 		enctype: 'multipart/form-data',
         processData: false,
         success: function(str){
-        	console.log(str);
+        	location.href = "<%=cp%>/boardmain.do";
         },
 	})
 }

@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="<%=cp %>/resources/css/structure/header.css" />
 <script src="<%=cp %>/resources/js/header.js"></script>
 
+<div id="headerbox">이곳은 블로그 입니다.</div>
+
 <ul class="sidebar">
   <li><a href="<%=cp%>">home</a></li>
   <li>JAVA</li>
@@ -22,4 +24,3 @@
 
 <input type="checkbox" id="sidebar-btn" class="sidebar-btn"/>
 <label for="sidebar-btn" class="sidebar-btn_text">☰</label>
-
