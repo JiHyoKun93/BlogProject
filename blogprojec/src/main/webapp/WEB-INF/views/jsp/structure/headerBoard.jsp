@@ -12,12 +12,12 @@
 <div id="headerbox">이곳은 블로그 입니다.</div>
 
 <ul class="sidebar">
-  <li><a href="<%=cp%>">home</a></li>
-  <li>JAVA</li>
-  <li>DB</li>
-  <li>WEB</li>
-  <li>FrameWork</li>
-  <li>Menu</li>
+  <li><a href="<%=cp%>/main.do">home</a></li>
+  <li><a href="<%=cp%>/boardmain.do?pageNum=1&searchValue=java">JAVA</a></li>
+  <li><a href="<%=cp%>/boardmain.do?pageNum=1&searchValue=db">DB</a></li>
+  <li><a href="<%=cp%>/boardmain.do?pageNum=1&searchValue=web">WEB</a></li>
+  <li><a href="<%=cp%>/boardmain.do?pageNum=1&searchValue=FrameWork">FrameWork</a></li>
+  <li><a href="<%=cp%>/boardmain.do?pageNum=1&searchValue=java">Menu</a></li>
   <li><a href="<%=cp%>/boardwrite.do">글쓰기</a></li>
   
 </ul>

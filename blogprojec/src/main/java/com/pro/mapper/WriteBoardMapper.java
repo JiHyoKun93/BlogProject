@@ -14,7 +14,7 @@ public interface WriteBoardMapper {
 	
 	public int getDataCount(String searchValue) throws Exception;
 	
-	public List<WriteBoardDTO> getLists(int start, int end, String searchValue);
+	public List<WriteBoardDTO> getLists(int start, String searchValue);
 	
 	public WriteBoardDTO getReadData(int num) throws Exception;
 	
@@ -23,4 +23,8 @@ public interface WriteBoardMapper {
 	public void updateData(WriteBoardDTO dto) throws Exception;
 	
 	public void deleteData(int num) throws Exception;
+	
+	public List<WriteBoardDTO> getPrevReadData(String searchValue, String board_CreateDate,int board_num) throws Exception;
+
+	public List<WriteBoardDTO> getNextReadData(String searchValue, String board_CreateDate,int board_num) throws Exception;
 }

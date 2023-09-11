@@ -14,34 +14,4 @@
 
 	<description>Example configuration to get you started.</description>
 
-
-
-<!-- 	<context:component-scan -->
-<!-- 		base-package="com.pro.mybatis" /> -->
-	
-<!-- 	<bean id="WriteBoardDAO" class="com.pro.dao.WriteBoardDAO"> -->
-<!-- 		<property name="sessionTemplate" ref="sessionTemplate" /> -->
-<!-- 	</bean> -->
-
-<!-- 	<bean id="sessionTemplate" -->
-<!-- 		class="org.mybatis.spring.SqlSessionTemplate"> -->
-<!-- 		<constructor-arg ref="sessionFactory" /> -->
-<!-- 	</bean> -->
-
-
-<!-- 	<bean id="sessionFactory" -->
-<!-- 		class="org.mybatis.spring.SqlSessionFactoryBean"> -->
-<!-- 		<property name="dataSource" ref="dataSource" /> -->
-<!-- 		<property name="configLocation" -->
-<!-- 			value="classpath:/com/pro/mybatis/mybatis-config.xml" /> -->
-<!-- 	</bean> -->
-
-<!-- 	<bean id="dataSource" -->
-<!-- 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" -->
-<!-- 		p:driverClassName="org.mariadb.jdbc.Driver" -->
-<!-- 		p:url="jdbc:mariadb://umj7-003.cafe24.com:3306/gyrms93" -->
-<!-- 		p:username="gyrms93" p:password="chfha213!@!" /> -->
-
-	
-
 </beans>

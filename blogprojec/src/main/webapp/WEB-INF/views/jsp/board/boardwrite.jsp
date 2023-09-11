@@ -25,11 +25,18 @@
 				<h1>글쓰기</h1>
 			</div>
 			<div id=b_Article>
-			<input type="text" name="board_type" class="form-control" id="floatingInput" placeholder="title">
+			<select name="board_type" class="">
+							<option value="None">NONE</option>
+							<option value="Java">JAVA</option>
+							<option value="DB">DB</option>
+							<option value="Web">WEB</option>
+							<option value="FrameWork">FrameWork</option>
+						</select>
 				<div class="list_title">
 					<h2>
 						<span class="text_title">
 						<input type="text" name="board_title" class="form-control" id="floatingInput" placeholder="제목">
+						
 						</span>
 					</h2>
 				</div>

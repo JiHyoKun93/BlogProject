@@ -33,8 +33,6 @@ import com.pro.dto.WriteBoardDTO;
 @Controller("com.pro.blog.FileController")
 public class FileController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(FileController.class);
-	
 	@Autowired
 	WriteBoardDAO dao;
 	

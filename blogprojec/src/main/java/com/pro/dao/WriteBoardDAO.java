@@ -27,7 +27,7 @@ public class WriteBoardDAO implements WriteBoardMapper {
 
 	@Override
 	public int maxNum() throws Exception {
-		int maxNum = sessionTemplate.selectOne("com.pro.writeboard.getMaxNum");
+		int maxNum = sessionTemplate.selectOne("com.pro.writeboard.maxNum");
 		System.out.println("dao의 maxnum = " + maxNum);
 		return maxNum;
 	}
@@ -48,11 +48,10 @@ public class WriteBoardDAO implements WriteBoardMapper {
 	}
 
 	@Override
-	public List<WriteBoardDTO> getLists(int start, int end, String searchValue) {
+	public List<WriteBoardDTO> getLists(int start, String searchValue) {
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("start", start);
-		params.put("end", end);
 		params.put("searchValue", searchValue);
 		
 		List<WriteBoardDTO> lists = sessionTemplate.selectList("com.pro.writeboard.getList",params);
@@ -81,6 +80,31 @@ public class WriteBoardDAO implements WriteBoardMapper {
 	@Override
 	public void deleteData(int num) throws Exception {
 		sessionTemplate.delete("com.pro.writeboard.deleteData", num);
+	}
+
+	@Override
+	public List<WriteBoardDTO> getPrevReadData(String searchValue, String board_CreateDate,int board_num) throws Exception {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("searchValue", searchValue);
+		params.put("board_createDate", board_CreateDate);
+		params.put("board_num", board_num);
+		
+		List<WriteBoardDTO> lists = sessionTemplate.selectList("com.pro.writeboard.prevReadData",params);
+		
+		return lists;
+	}
+
+	@Override
+	public List<WriteBoardDTO> getNextReadData(String searchValue, String board_CreateDate, int board_num) throws Exception {
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("searchValue", searchValue);
+		params.put("board_createDate", board_CreateDate);
+		params.put("board_num", board_num);
+
+		List<WriteBoardDTO> lists = sessionTemplate.selectList("com.pro.writeboard.nextReadData",params);
+		
+		return lists;
 	}
 	
 	

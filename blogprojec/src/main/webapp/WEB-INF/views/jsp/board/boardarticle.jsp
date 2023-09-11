@@ -39,21 +39,27 @@
 				<h4>이전글 다음글</h4>
 				<table>
 					<tbody>
-						<tr>
-							<th>내용내용내용</th>
-						</tr>
-						<tr>
-							<th>내용내용내용</th>
-						</tr>
-						<tr>
-							<th>내용내용내용</th>
-						</tr>
-						<tr>
-							<th>내용내용내용</th>
-						</tr>
-						<tr>
-							<th>내용내용내용</th>
-						</tr>
+						<c:forEach var="nextDto" items="${nextLists }">
+								<tr>
+									<th>
+										<a href="${articleUrl}?board_num=${nextDto.board_num }">
+										${nextDto.board_title }</a>
+									</th>
+								</tr>
+						</c:forEach>
+								<tr>
+									<th>
+										<span>${dto.board_title }</span>
+									</th>
+								</tr>
+						<c:forEach var="prevDto" items="${prevLists }">
+								<tr>
+									<th>
+										<a href="${articleUrl}?board_num=${prevDto.board_num }">
+										${prevDto.board_title }</a>
+									</th>
+								</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>

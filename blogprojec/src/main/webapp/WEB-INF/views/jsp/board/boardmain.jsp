@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-String cp = request.getContextPath();
+	String cp = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@ String cp = request.getContextPath();
 <title>Insert title here</title>
 <c:import url="/WEB-INF/views/jsp/structure/thumbnail.jsp" />
 <c:import url="/WEB-INF/views/jsp/structure/headerBoard.jsp" />
-<link rel="stylesheet" href="<%=cp%>/resources/css/board/boardmain.css" />
+<link rel="stylesheet" href="<%=cp%>/resources/css/board/boardmain.css"/>
 
 </head>
 <body>
@@ -21,40 +21,42 @@ String cp = request.getContextPath();
 
 		<div id="container">
 			<div id="headerTitle">
-				<h1>타이틀(JAVA, DB..등등)</h1>
+				<h1>
+					<span>${searchValue }</span>
+				</h1>
 			</div>
 			<div id=b_Article>
 				<div class="list_title">
 					<h2>
-						<span class="text_title">전체 글 ()</span>
+						<span class="text_title">전체 글 (${dataCount })</span>
 					</h2>
 				</div>
 			</div>
 
 			<c:forEach var="dto" items="${lists }">
 				<div class="list_content">
-					<a href="/blog/boardarticle.do?board_num=${dto.board_num }"
+					<a href="${articleUrl }&board_num=${dto.board_num }&searchValue=${searchValue}"
 						class="link_post"> <strong class="title_post">${dto.board_title }</strong>
 					</a>
 
 					<div class="detail_info">
-						<a href="#" class="link_info">${dto.board_type }</a> <span
+						<a href="${searchUrl }${dto.board_type }" class="link_info">${dto.board_type }</a> <span
 							class="text_bar"></span> <span class="text_date">${dto.board_createDate }</span>
 					</div>
 				</div>
-				<input type="hidden" name="board_num" value="${dto.board_num }">
+				
 			</c:forEach>
 
 		</div>
-		<div id="footer">
-			<p>
+		<div class="area_paging">
+			<span class="inner_paging">
 				<c:if test="${dataCount!=0 }">
 						${pageIndexList }
 					</c:if>
 				<c:if test="${dataCount==0 }">
 						등록된 게시물이 없습니다.
 					</c:if>
-			</p>
+			</span>
 		</div>
 	</div>
 

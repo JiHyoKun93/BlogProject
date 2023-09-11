@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.pro.writeboard">
 
 <select id="maxNum" resultType="int">
-	select ifnull(count(*),0) as num from writeBoard
+	select ifnull(count(*),0) as board_num from writeBoard
 </select>
 
 <insert id="insertData" parameterType="com.pro.dto.WriteBoardDTO">
@@ -20,21 +20,51 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 <select id="getList" resultType="com.pro.dto.WriteBoardDTO">
-	SELECT board_num, board_type, board_title, board_content, DATE_FORMAT(board_createDate, 'YYYY-MM-DD') AS board_createDate
+	SELECT board_num, board_type, board_title, board_content, DATE_FORMAT(board_createDate, '%Y.%m.%d %H:%i:%S') AS board_createDate
 	FROM writeBoard
-	WHERE board_title LIKE '%%'
+	WHERE board_type LIKE CONCAT('%', #{searchValue}, '%')
 	ORDER BY board_createDate desc
-	LIMIT 5 OFFSET 0;
+	LIMIT 5 OFFSET #{start};
 </select>
 
 <select id="getDataCount" parameterType="map" resultType="int">
 	select ifnull(count(*),0) from writeBoard
-	where board_title like '%' || #{searchValue} || '%'
+	where board_type like CONCAT('%', #{searchValue}, '%')
 </select>
-
-
 
 <delete id="deleteData" parameterType="int">
 	delete board where num=#{num}
 </delete>
+
+<select id="nextReadData" parameterType="map" resultType="com.pro.dto.WriteBoardDTO">
+	<![CDATA[
+	select data.* from (
+	(select board_num, board_type, board_title, board_content, DATE_FORMAT(board_createDate, '%Y.%m.%d %H:%i:%S') AS board_createDate from writeBoard
+	where board_createDate >= #{board_createDate}
+	and board_num != #{board_num}
+	and board_type LIKE CONCAT('%', #{searchValue}, '%')
+	ORDER BY board_createDate
+	LIMIT 2) as data) order by board_createDate desc;
+	]]>
+</select>
+
+<select id="prevReadData" parameterType="map" resultType="com.pro.dto.WriteBoardDTO">
+	<![CDATA[
+	select board_num, board_type, board_title, board_content, DATE_FORMAT(board_createDate, '%Y.%m.%d %H:%i:%S') AS board_createDate 
+	from writeBoard
+	where board_createDate < #{board_createDate}
+	and board_num != #{board_num}
+	and board_type LIKE CONCAT('%', #{searchValue}, '%')
+	ORDER BY board_createDate desc
+	LIMIT 2;
+	]]>
+</select>
+
+
+
+
+
+
+
+
 </mapper>

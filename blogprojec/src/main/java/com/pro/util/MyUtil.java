@@ -51,7 +51,7 @@ public class MyUtil {
 
 		// ◀이전 눌렀을때 옮겨가는
 		if (totalPage > numPerBlock && currentPageSetup > 0) {
-			sb.append("<a href=\"" + listUrl + "pageNum=" + currentPageSetup + "\">◀이전</a>&nbsp;");
+			sb.append("<a href=\"" + listUrl + "pageNum=" + currentPageSetup + "\" class=\"btn_prev no-more-prev\"><span>◀이전</span></a>&nbsp;");
 			// <a href="list.jsp?pageNum=5">◀이전</a>&nbsp
 		}
 
@@ -61,10 +61,10 @@ public class MyUtil {
 		while (page <= totalPage && page <= (currentPageSetup + numPerBlock)) {
 
 			if (page == currentPage) {
-				sb.append("<font color=\"Fuchsia\">" + page + "</font>&nbsp;");
+				sb.append("<a href=\"" + listUrl + "pageNum=" + page + "\" class=\"link_page\"><span class=\"selected\">" + page + "</span></a>&nbsp;");
 				// <font color = "Fuchsia">9</font>&nbsp;
 			} else {
-				sb.append("<a href=\"" + listUrl + "pageNum=" + page + "\">" + page + "</a>&nbsp;");
+				sb.append("<a href=\"" + listUrl + "pageNum=" + page + "\" class=\"link_page\"><span>" + page + "</span></a>&nbsp;");
 				// <a href = "list.jsp?pageNum=10">
 			}
 			page++;
@@ -73,7 +73,7 @@ public class MyUtil {
 		// 다음 눌렀을때 다음▶
 		if (totalPage - currentPageSetup > numPerBlock) {
 
-			sb.append("<a href=\"" + listUrl + "pageNum=" + page + "\">다음▶</a>&nbsp;");
+			sb.append("<a href=\"" + listUrl + "pageNum=" + page + "\" class=\"btn_next\"><span>다음▶</span></a>&nbsp;");
 			// <a href="list.jsp>?pageNum=11">다음▶</a>&nbsp;
 		}
 		return sb.toString();
