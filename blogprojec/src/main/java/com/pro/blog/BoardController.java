@@ -56,7 +56,7 @@ public class BoardController {
 		int dataCount = dao.getDataCount(searchValue);
 		
 		
-		int numPerPage = 5;
+		int numPerPage = 10;
 		int totalPage = myUtli.getPageCount(numPerPage, dataCount);
 		
 		System.out.println("토탈 : " + totalPage);

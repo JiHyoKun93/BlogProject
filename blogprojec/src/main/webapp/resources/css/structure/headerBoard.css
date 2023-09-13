@@ -7,7 +7,8 @@
 
 body{
 	font-family: 'MBC1961GulimM';
-	overflow: auto;
+	overflow-y: auto;
+    overflow-x: hidden;
 }
 
 $
@@ -39,18 +40,20 @@ label[for="sidebar-btn"] {
 	cursor: pointer;
 	font-size: 25pt;
 	background-size: contain;
+	color: white;
 }
 
 .sidebar-btn+label, .content {
 	transition: left 1s;
-	position: sticky;
+/* 	position: sticky; */
 	top: 10px;
 }
 
 .sidebar-btn:checked+label {
 	left: 200px;
-	position: sticky;
+	position: fixed;
 	top: 10px;
+	z-index: 2;
 }
 
 .sidebar-btn:checked ~ .content {
@@ -104,10 +107,11 @@ label[for="sidebar-btn"] {
 }
 
 .header {
-/* 	position: fixed; */
+	position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    z-index:2;
 }
 
 .hbody {

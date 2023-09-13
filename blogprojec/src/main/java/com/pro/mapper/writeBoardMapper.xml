@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	FROM writeBoard
 	WHERE board_type LIKE CONCAT('%', #{searchValue}, '%')
 	ORDER BY board_createDate desc
-	LIMIT 5 OFFSET #{start};
+	LIMIT 10 OFFSET #{start};
 </select>
 
 <select id="getDataCount" parameterType="map" resultType="int">

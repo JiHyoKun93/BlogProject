@@ -18,6 +18,8 @@
 			<li class="menu_item"><a href="#" class="link">Project3</a></li>
 		</ul>
 	</div>
+	
+
 </header>
 
 <ul class="sidebar">
@@ -28,8 +30,7 @@
   <li><a href="<%=cp%>/boardmain.do?pageNum=1&searchValue=FrameWork">FrameWork</a></li>
   <li><a href="<%=cp%>/boardmain.do?pageNum=1&searchValue=java">Menu</a></li>
   <li><a href="<%=cp%>/boardwrite.do">글쓰기</a></li>
-  
 </ul>
-
 <input type="checkbox" id="sidebar-btn" class="sidebar-btn"/>
 <label for="sidebar-btn" class="sidebar-btn_text">☰</label>
+

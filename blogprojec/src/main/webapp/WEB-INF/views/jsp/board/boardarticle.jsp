@@ -13,6 +13,12 @@
 <c:import url="/WEB-INF/views/jsp/structure/thumbnail.jsp" />
 <c:import url="/WEB-INF/views/jsp/structure/headerBoard.jsp" />
 <link rel="stylesheet" href="<%=cp%>/resources/css/board/boardarticle.css" />
+<style type="text/css">
+
+li{
+	margin: 15px 0 15px 30px;
+}
+</style>
 </head>
 <body>
 
