@@ -8,7 +8,6 @@
 body{
 	font-family: 'MBC1961GulimM';
 	overflow: auto;
-	
 }
 
 $
@@ -117,7 +116,7 @@ label[for="sidebar-btn"] {
     display: flex;
     color: white;
     align-items: center;
-    background-color: white;
+    background-color: #333;
     justify-content: center;
 }
 
@@ -133,7 +132,7 @@ label[for="sidebar-btn"] {
 
 .menu>li {
     font-size: 18px;
-    color: black;
+    color: white;
 }
 
 .menu li {
@@ -149,6 +148,6 @@ label[for="sidebar-btn"] {
 
 .link {
     text-decoration: none;
-    color: black;
+    color: white;
     cursor: pointer;
 }

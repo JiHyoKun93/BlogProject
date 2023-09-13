@@ -6,10 +6,19 @@
 	String cp = request.getContextPath();
 %>
 <link rel="stylesheet" href="<%=cp %>/resources/css/reset.css" />
-<link rel="stylesheet" href="<%=cp %>/resources/css/structure/header.css" />
+<link rel="stylesheet" href="<%=cp %>/resources/css/structure/headerBoard.css" />
 <script src="<%=cp %>/resources/js/header.js"></script>
 
-<div id="headerbox">이곳은 블로그 입니다.</div>
+<header class="header">
+	<div class="hbody">
+		<ul class="menu">
+			<li class="menu_item"><a href="<%=cp%>/boardmain.do"" class="link">블로그</a></li>
+			<li class="menu_item"><a href="#" class="link">Project1</a></li>
+			<li class="menu_item"><a href="#" class="link">Project2</a></li>
+			<li class="menu_item"><a href="#" class="link">Project3</a></li>
+		</ul>
+	</div>
+</header>
 
 <ul class="sidebar">
   <li><a href="<%=cp%>/main.do">home</a></li>
