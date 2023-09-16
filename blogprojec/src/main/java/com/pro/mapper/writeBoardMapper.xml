@@ -33,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 <delete id="deleteData" parameterType="int">
-	delete board where num=#{num}
+	delete from writeBoard where board_num = #{board_num}
 </delete>
 
 <select id="nextReadData" parameterType="map" resultType="com.pro.dto.WriteBoardDTO">

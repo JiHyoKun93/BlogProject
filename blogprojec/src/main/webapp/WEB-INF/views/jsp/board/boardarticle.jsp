@@ -33,8 +33,11 @@ li{
 					<span class="txt_bar"></span>
 					<a href="/boardupdate.do?board_num=${dto.board_num }">수정</a>
 					<span class="txt_bar"></span>
-					<a href="/">삭제</a>
+					<a href="#" id="deleteArticle">삭제</a>
 				</span>
+				<input type="hidden" id="board_num" value="${dto.board_num }">
+				<input type="hidden" id="pageNum" value="${pageNum }">
+				<input type="hidden" id="searchValue" value="${searchValue }">
 				
 			</div>
 			<div id=b_Article>
@@ -72,5 +75,26 @@ li{
 		</div>
 		
 	</div>
+	<script type="text/javascript">
+		
+			document.getElementById("deleteArticle").addEventListener("click", function(event) {
+		        // 사용자에게 삭제 확인 대화 상자를 표시하고 사용자 선택 결과를 저장
+		        var confirmation = confirm("정말로 삭제하시겠습니까?");
+
+		        // 확인을 선택한 경우에만 삭제 동작을 수행
+		        if (confirmation) {
+		        	var board_num = document.getElementById('board_num').value;
+		        	var pageNum = document.getElementById('pageNum').value;
+		        	var searchValue = document.getElementById('searchValue').value;
+		        	
+		        	var param = "/boarddelete.do?pageNum=" + pageNum + "&board_num=" + board_num + "&searchValue=" + searchValue;
+					window.location.href = param;
+		        	
+		        } else {
+		            event.preventDefault(); // 이벤트 기본 동작(링크 이동)을 막음
+		        }
+		    });
+			
+	</script>
 </body>
 </html>

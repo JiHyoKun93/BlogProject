@@ -130,20 +130,10 @@ public class BoardController {
 	@RequestMapping(value = "/boardupdate.do", method = { RequestMethod.GET })
 	public ModelAndView boardupdate(HttpServletRequest request) throws Exception {
 		
-		System.out.println("boardUpdate.....");
+//		System.out.println("boardUpdate.....");
 		
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		
-		String searchValue = request.getParameter("searchValue");
-
-		if (searchValue == null) {
-			searchValue = "";
-		} else {
-			if (request.getMethod().equalsIgnoreCase("GET")) {
-				searchValue = URLDecoder.decode(searchValue, "UTF-8");
-			}
-		}
-
 		WriteBoardDTO dto = dao.getReadData(board_num);
 		
 		System.out.println("date : " + dto.getBoard_createDate());
@@ -178,6 +168,12 @@ public class BoardController {
 	@RequestMapping(value = "/boardarticle.do")
 	public ModelAndView article(HttpServletRequest request) throws Exception {
 
+		String pageNum = request.getParameter("pageNum");
+
+		if (pageNum == null) {
+			pageNum = "1";
+		}
+		
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		
 		String searchValue = request.getParameter("searchValue");
@@ -212,12 +208,39 @@ public class BoardController {
 		mav.addObject("prevLists", prevLists);
 		mav.addObject("nextLists", nextLists);
 		mav.addObject("articleUrl", articleUrl);
-
+		mav.addObject("pageNum", pageNum);
+		
 		mav.setViewName("jsp/board/boardarticle");
 		
-		System.out.println("dto board num = " + dto.getBoard_num());
-		System.out.println("board num = " + board_num);
+//		System.out.println("dto board num = " + dto.getBoard_num());
+//		System.out.println("board num = " + board_num);
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/boarddelete.do")
+	public ModelAndView delete(HttpServletRequest request) throws Exception {
+		
+		int board_num = Integer.parseInt(request.getParameter("board_num"));
+		String pageNum = request.getParameter("pageNum");
+		String searchValue = request.getParameter("searchValue");
+
+		if (searchValue == null) {
+			searchValue = "";
+		} else {
+			if (request.getMethod().equalsIgnoreCase("GET")) {
+				searchValue = URLDecoder.decode(searchValue, "UTF-8");
+			}
+		}
+		
+		dao.deleteData(board_num);
+		
+		ModelAndView mav = new ModelAndView();
+		String param = "redirect:/boardmain.do?pageNum=" + pageNum + "&searchValue=" + searchValue;
+		mav.setViewName(param);
+		return mav;
+	}
+
+	
+	
 }
