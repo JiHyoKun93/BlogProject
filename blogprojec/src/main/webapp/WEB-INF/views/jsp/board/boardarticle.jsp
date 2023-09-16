@@ -31,7 +31,7 @@ li{
 				<h3 class="title_post">${dto.board_title }</h3>
 				<span class="info_post">${dto.board_createDate }
 					<span class="txt_bar"></span>
-					<a href="/">수정</a>
+					<a href="/boardupdate.do?board_num=${dto.board_num }">수정</a>
 					<span class="txt_bar"></span>
 					<a href="/">삭제</a>
 				</span>

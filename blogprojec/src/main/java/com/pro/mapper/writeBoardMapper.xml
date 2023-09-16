@@ -60,7 +60,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	]]>
 </select>
 
-
+<update id="updateData" parameterType="com.pro.dto.WriteBoardDTO">
+	update writeBoard set board_title = #{board_title}, board_content = #{board_content},
+	board_type = #{board_type},
+	board_createDate = #{board_createDate}, board_updateDate = now()
+	where board_num = #{board_num};
+</update>
 
 
 

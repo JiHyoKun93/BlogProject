@@ -94,35 +94,4 @@ public class FileController {
 		return map;
 
 	}
-
-	
-	@RequestMapping(value = "/test.do")
-	public ModelAndView test(@RequestParam String editorData, WriteBoardDTO dto) throws Exception {
-		
-		int maxNum = dao.maxNum();
-//		System.out.println("test의 maxnum = " + maxNum);
-//		System.out.println("저장하러 들어옴");
-//		System.out.println(dto.getBoard_title());
-//		System.out.println(editorData);
-		
-		dto.setBoard_num(maxNum + 1);
-		dto.setBoard_content(editorData);
-
-//		System.out.println(dto.getBoard_num());
-//		System.out.println(dto.getBoard_title());
-//		System.out.println(dto.getBoard_type());
-//		System.out.println(dto.getBoard_content());
-//		System.out.println(dto.getBoard_CreateData());
-		
-		
-		dao.insertData(dto);
-		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("jsp/board/boardmain");
-		
-		return mav;
-	}
-	
-	
-		
 }

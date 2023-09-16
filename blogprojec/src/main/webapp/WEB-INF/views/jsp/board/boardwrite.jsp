@@ -41,7 +41,7 @@
 					</h2>
 				</div>
 			</div>
-			<div id="editor" style="display: none; "></div>
+			<div id="editor" style="display: none;"></div>
 			<div style="align-items: center">
 				<input type="button" class="btn btn-outline-success" value="저장하기" onclick="sendFile();">
 				<input type="button" class="btn btn-outline-danger" value="작성취소">
@@ -62,7 +62,7 @@ function sendFile(){
 	$.ajax({
 		data: formData,
 		type: "POST",
-		url: "<%=cp%>/file/test.do",
+		url: "<%=cp%>/boardwrite.do",
 		cache: false,
 		contentType: false,
 		enctype: 'multipart/form-data',

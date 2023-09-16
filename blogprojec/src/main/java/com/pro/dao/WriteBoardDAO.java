@@ -74,7 +74,7 @@ public class WriteBoardDAO implements WriteBoardMapper {
 
 	@Override
 	public void updateData(WriteBoardDTO dto) throws Exception {
-		
+		sessionTemplate.update("com.pro.writeboard.updateData", dto);
 	}
 
 	@Override
