@@ -1,14 +1,6 @@
-@font-face {
-    font-family: 'MBC1961GulimM';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961GulimM.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
 
 body{
-	font-family: 'MBC1961GulimM';
 	overflow: auto;
-	
 }
 
 $
@@ -114,22 +106,23 @@ label[for="sidebar-btn"] {
 .hbody {
 	width: 100%;
     height: 50px;
-    display: flex;
     color: white;
     align-items: center;
     background-color: white;
-    justify-content: center;
+    padding: 0px 20px 0px 20px;
 }
 
 .menu {
-	    display: flex;
-    justify-content: space-around;
-    gap: 100px;
+	display: flex;
+	height: 100%;
     list-style: none;
     margin: auto;
     margin-left: 0px;
     margin-right: 0px;
+    font-weight: 600;
+    align-items: center;
 }
+
 
 .menu>li {
     font-size: 18px;
@@ -143,7 +136,7 @@ label[for="sidebar-btn"] {
 }
 
 .menu_item {
-    width: 100px;
+    width: 100%;
     text-align: center;
 }
 
@@ -151,5 +144,33 @@ label[for="sidebar-btn"] {
     text-decoration: none;
     color: black;
     cursor: pointer;
+    text-align: center;
+    font-weight: 600;
+    width: 100%;
+}
+
+.link.on{
+	font-size: 20px;
+}
+
+.link.on::after{
+	display: flex;
+	content: "";
+	height: 5px;
+	background-color: #45a7e9;
+	margin: 5px 10px 0 10px;
+}
+
+.link_Home{
+	text-decoration: none;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.link:hover {
+	font-size: 20px;
 }
 

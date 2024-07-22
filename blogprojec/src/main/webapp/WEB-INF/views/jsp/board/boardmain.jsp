@@ -9,10 +9,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>블로그</title>
 <c:import url="/WEB-INF/views/jsp/structure/thumbnail.jsp" />
-<c:import url="/WEB-INF/views/jsp/structure/headerBoard.jsp" />
-<link rel="stylesheet" href="<%=cp%>/resources/css/board/boardmain.css"/>
+<c:import url="/WEB-INF/views/jsp/structure/header.jsp" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/board/boardmain.css"/>
 
 </head>
 <body>
@@ -32,15 +32,15 @@
 					</h2>
 				</div>
 			</div>
-
+			
 			<c:forEach var="dto" items="${lists }">
 				<div class="list_content">
-					<a href="${articleUrl }&board_num=${dto.board_num }&searchValue=${searchValue}"
+					<a href="${pageContext.request.contextPath}${articleUrl }&board_num=${dto.board_num }&searchValue=${searchValue}"
 						class="link_post"> <strong class="title_post">${dto.board_title }</strong>
 					</a>
 
 					<div class="detail_info">
-						<a href="${searchUrl }${dto.board_type }" class="link_info">${dto.board_type }</a> <span
+						<a href="${pageContext.request.contextPath}${searchUrl }${dto.board_type }" class="link_info">${dto.board_type }</a> <span
 							class="text_bar"></span> <span class="text_date">${dto.board_createDate }</span>
 					</div>
 				</div>
@@ -60,6 +60,9 @@
 		</div>
 	</div>
 
-
+<script type="text/javascript">
+		let me = document.querySelector('[data-menu="BLOG"]');
+		me.classList.add('on');
+	</script>
 </body>
 </html>

@@ -26,7 +26,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/main.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String main(Locale locale, Model model) {
-		
+		model.addAttribute("type", "home");
 		return "jsp/main/main";
 	}
 }

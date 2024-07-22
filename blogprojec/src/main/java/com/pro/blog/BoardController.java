@@ -1,4 +1,4 @@
-package com.pro.blog;
+ package com.pro.blog;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -100,7 +100,7 @@ public class BoardController {
 		mav.addObject("articleUrl", articleUrl);
 		mav.addObject("searchValue", searchValue);
 		mav.addObject("searchUrl", searchUrl);
-
+		mav.addObject("type", "blog");
 		mav.setViewName("jsp/board/boardmain");
 
 		return mav;
@@ -141,7 +141,7 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("dto", dto);
-		
+		mav.addObject("type", "blog");
 		mav.setViewName("jsp/board/boardupdate");
 		return mav;
 	}
@@ -160,7 +160,7 @@ public class BoardController {
 		dao.updateData(dto);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("jsp/board/boardmain");
-		
+		mav.addObject("type", "blog");
 		return mav;
 	}
 
@@ -214,7 +214,7 @@ public class BoardController {
 		
 //		System.out.println("dto board num = " + dto.getBoard_num());
 //		System.out.println("board num = " + board_num);
-		
+		mav.addObject("type", "blog");
 		return mav;
 	}
 	
@@ -238,6 +238,7 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		String param = "redirect:/boardmain.do?pageNum=" + pageNum + "&searchValue=" + searchValue;
 		mav.setViewName(param);
+		mav.addObject("type", "blog");
 		return mav;
 	}
 

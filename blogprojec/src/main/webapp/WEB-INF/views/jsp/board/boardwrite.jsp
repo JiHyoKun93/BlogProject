@@ -10,8 +10,8 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 작성</title>
-<link rel="stylesheet" href="<%=cp%>/resources/css/board/boardmain.css" />
-<link rel="stylesheet" href="<%=cp%>/resources/ckeditor/sample/styles.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/board/boardmain.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ckeditor/sample/styles.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/super-build/ckeditor.js"></script>
 </head>
@@ -50,7 +50,7 @@
 	</div>
 	</form>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script src="<%=cp%>/resources/js/ckeditor/ckeditor_upload.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/ckeditor/ckeditor_upload.js"></script>
 <script type="text/javascript">
 
 function sendFile(){
@@ -62,13 +62,13 @@ function sendFile(){
 	$.ajax({
 		data: formData,
 		type: "POST",
-		url: "<%=cp%>/boardwrite.do",
+		url: "${pageContext.request.contextPath}/boardwrite.do",
 		cache: false,
 		contentType: false,
 		enctype: 'multipart/form-data',
         processData: false,
         success: function(str){
-        	location.href = "<%=cp%>/boardmain.do";
+        	location.href = "${pageContext.request.contextPath}/boardmain.do";
         },
 	})
 }

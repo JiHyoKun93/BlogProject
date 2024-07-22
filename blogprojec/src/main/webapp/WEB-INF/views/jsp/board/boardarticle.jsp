@@ -9,14 +9,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${dto.board_title }</title>
 <c:import url="/WEB-INF/views/jsp/structure/thumbnail.jsp" />
-<c:import url="/WEB-INF/views/jsp/structure/headerBoard.jsp" />
-<link rel="stylesheet" href="<%=cp%>/resources/css/board/boardarticle.css" />
+<c:import url="/WEB-INF/views/jsp/structure/header.jsp" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/board/boardarticle.css" />
 <style type="text/css">
 
 li{
-	margin: 15px 0 15px 30px;
+	margin: 15px 0 15px 30px !important;
 }
 </style>
 </head>
@@ -30,10 +30,10 @@ li{
 				</strong>
 				<h3 class="title_post">${dto.board_title }</h3>
 				<span class="info_post">${dto.board_createDate }
-					<span class="txt_bar"></span>
-					<a href="/boardupdate.do?board_num=${dto.board_num }">수정</a>
-					<span class="txt_bar"></span>
-					<a href="#" id="deleteArticle">삭제</a>
+<!-- 					<span class="txt_bar"></span> -->
+<%-- 					<a href="/boardupdate.do?board_num=${dto.board_num }">수정</a> --%>
+<!-- 					<span class="txt_bar"></span> -->
+<!-- 					<a href="#" id="deleteArticle">삭제</a> -->
 				</span>
 				<input type="hidden" id="board_num" value="${dto.board_num }">
 				<input type="hidden" id="pageNum" value="${pageNum }">
@@ -51,7 +51,7 @@ li{
 						<c:forEach var="nextDto" items="${nextLists }">
 								<tr>
 									<th>
-										<a href="${articleUrl}?board_num=${nextDto.board_num }">
+										<a href="${pageContext.request.contextPath}${articleUrl}?board_num=${nextDto.board_num }">
 										${nextDto.board_title }</a>
 									</th>
 								</tr>
@@ -64,7 +64,7 @@ li{
 						<c:forEach var="prevDto" items="${prevLists }">
 								<tr>
 									<th>
-										<a href="${articleUrl}?board_num=${prevDto.board_num }">
+										<a href="${pageContext.request.contextPath}${articleUrl}?board_num=${prevDto.board_num }">
 										${prevDto.board_title }</a>
 									</th>
 								</tr>
@@ -95,6 +95,10 @@ li{
 		        }
 		    });
 			
+	</script>
+	<script type="text/javascript">
+		let me = document.querySelector('[data-menu="BLOG"]');
+		me.classList.add('on');	
 	</script>
 </body>
 </html>

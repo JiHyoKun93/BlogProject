@@ -5,3 +5,7 @@
 	--body-bg : #fff;
 	--login-color : #0b8e4f;
 }
+a {
+	text-decoration: none;
+	color: black;
+}

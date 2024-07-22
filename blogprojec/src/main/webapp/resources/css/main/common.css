@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: "NanumSquare";
+}
+
+ul, ol {
+    padding-inline-start: 20px;
+    text-align: left !important;
+}
+
+li {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
+
+/******************************************* utility *******************************************/
+
+.hide {
+    display: none !important;
+}
+
+.desktop {
+    display: initial;
+}
+
+.mobile {
+    display: none;
+}
+
+.flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text_smooth {
+    transform: rotate(-0.03deg);
+}
+
+
+@media screen and (max-width: calc(768px - 1px)) {
+    .desktop {
+        display: none;
+    }
+    
+    .mobile {
+        display: initial;
+    }
+}

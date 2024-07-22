@@ -40,19 +40,19 @@ label[for="sidebar-btn"] {
 	cursor: pointer;
 	font-size: 25pt;
 	background-size: contain;
-	color: white;
+	color: black;
 }
 
 .sidebar-btn+label, .content {
 	transition: left 1s;
 /* 	position: sticky; */
-	top: 10px;
+	top: 60px;
 }
 
 .sidebar-btn:checked+label {
 	left: 200px;
 	position: fixed;
-	top: 10px;
+	top: 60px;
 	z-index: 2;
 }
 
@@ -132,6 +132,8 @@ label[for="sidebar-btn"] {
     margin: auto;
     margin-left: 0px;
     margin-right: 0px;
+    font-weight: 600;
+    align-items: center;
 }
 
 .menu>li {
@@ -146,7 +148,7 @@ label[for="sidebar-btn"] {
 }
 
 .menu_item {
-    width: 100px;
+    width: auto;
     text-align: center;
 }
 
@@ -155,3 +157,8 @@ label[for="sidebar-btn"] {
     color: white;
     cursor: pointer;
 }
+
+.link:hover {
+	font-size: 20px;
+}
+
